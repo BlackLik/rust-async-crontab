@@ -11,13 +11,3 @@ serde_json = "1.0.140"
 tokio = { version = "1.44.2", features = ["full"] }
 utoipa = "5.3.1"
 utoipa-swagger-ui = { version = "9.0.1", features = ["axum"] }
-
-# определяем основной серверный бинарник
-[[bin]]
-name = "app"
-path = "src/app/main.rs"
-
-# определяем генератор спецификации
-[[bin]]
-name = "openapi"
-path = "src/openapi/main.rs"

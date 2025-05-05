@@ -11,14 +11,15 @@ use utoipa::OpenApi;
 struct ApiDoc;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let yaml = ApiDoc::openapi().to_yaml()?;
-    // let yaml = serde_yaml::to_string(&spec)?;
+    let spec = ApiDoc::openapi();
 
-    let out_path = Path::new("docs").join("openapi.yaml");
+    let json = serde_json::to_string_pretty(&spec)?;
+
+    let out_path = Path::new("docs").join("openapi.json");
     if let Some(dir) = out_path.parent() {
         fs::create_dir_all(dir)?;
     }
-    fs::write(&out_path, yaml)?;
+    fs::write(&out_path, json)?;
     println!("✅ OpenAPI spec generated to {}", out_path.display());
     Ok(())
 }

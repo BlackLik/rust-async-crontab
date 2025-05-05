@@ -12,4 +12,4 @@ COPY . .
 EXPOSE 8888
 
 # Команда запуска
-CMD ["cargo", "watch", "--poll", "-x", "run", "-p", "cmd", "--bin", "app"]
+CMD ["cargo", "watch", "--poll", "-x", "run -p cmd --bin app"]
