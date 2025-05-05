@@ -1,0 +1,23 @@
+[package]
+name = "cmd"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.4"
+internal = { version = "0.1.0", path = "../internal" }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+tokio = { version = "1.44.2", features = ["full"] }
+utoipa = "5.3.1"
+utoipa-swagger-ui = { version = "9.0.1", features = ["axum"] }
+
+# определяем основной серверный бинарник
+[[bin]]
+name = "app"
+path = "src/app/main.rs"
+
+# определяем генератор спецификации
+[[bin]]
+name = "openapi"
+path = "src/openapi/main.rs"

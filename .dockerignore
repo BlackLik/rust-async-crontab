@@ -16,5 +16,9 @@ target/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-config/.env
-postgres_data/*
+.git
+.gitignore
+Dockerfile*
+docker-compose*
+README.md
+*.log
